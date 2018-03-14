@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import React3 from 'react-three-renderer';
 import axios from 'axios';
@@ -9,8 +10,8 @@ var OrbitControls = require('three-orbit-controls')(THREE)
 
 class WebVR extends React.Component {
   static propTypes = {
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
   };
 
   constructor(props, context) {
@@ -36,7 +37,6 @@ class WebVR extends React.Component {
     this.THREE = THREE;
     var loader = new this.THREE.GLTFLoader();
     const group = this.refs.group;
-    var glt;
     console.log(this.state.mod,"graveobject");
       return (
       	// loader.load(
@@ -92,7 +92,6 @@ class WebVR extends React.Component {
        console.log(this.props.productInfo,"props");
        let currentmodelmap = nextProps.productInfo.map((product,index)=>product.model.model);
        let modelPath="";
-       let model="";
       currentmodelmap.forEach((item)=>modelPath=item);
       console.log(modelPath,"called");
       this.setState({

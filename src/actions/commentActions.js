@@ -3,7 +3,7 @@ import {productfetching,productfetched} from './productActions';
 // import { SubmissionError } from 'redux-form'
 import axios from 'axios';
  // const uuidv4 = require('uuid/v4');
- import uuidv4 from 'uuid/v4';
+ // import uuidv4 from 'uuid/v4';
 
 export const commentLike = (id,payload,enabled) => {
   return {

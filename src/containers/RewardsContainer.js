@@ -44,7 +44,7 @@ class RewardsContainer extends React.Component{
                       const reader = new FileReader();
                        console.log(reader);
                       reader.onload = () => {
-                          const fileAsBinaryString = reader.result;
+                          // const fileAsBinaryString = reader.result;
                           field.input.onChange(acceptedFiles)
                       };
                       reader.onabort = () => console.log('file reading was aborted');
@@ -66,7 +66,12 @@ class RewardsContainer extends React.Component{
                 className= "col-sm-4 col-md-4 col-lg-4 ">
                 <div className="mt-2">
                 <p className="mb-2 font-weight-bold">Image Preview</p>
-                <img src={file.preview} width="100%" height="200px" />
+                <img
+                src={file.preview}
+                width="100%"
+                height="200px"
+                alt="imagePreview"
+                />
                 {file.name}
                 {/*file.picture_id.preview ? <img src={file.picture_id.preview} width="100%" height="200px" /> :*/}
                 </div>
@@ -90,14 +95,7 @@ class RewardsContainer extends React.Component{
     }
 
 render(){
-  const {
-    handleSubmit,
-    productLoad,
-    getProductInfo,
-    pristine,
-    reset,
-    submitting
-  } = this.props
+  const {handleSubmit,pristine,reset,submitting} = this.props
   return(
           <div className="container-fluid my-3">
             <div className="card border border-secondary border-top-0">

@@ -89,7 +89,6 @@ const productReducer = (state=initialState,action={}) =>{
             }
 
             case 'SEARCH':
-            const {value} = action;
             return {
               ...state,
               searchText:action.value,

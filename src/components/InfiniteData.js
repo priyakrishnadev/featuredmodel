@@ -41,12 +41,15 @@ doQuery(queryParam) {
   }
   this.queryActive=true;
   switch(queryParam){
-    case 1: return this.buildData("furniture","pets").then((res)=>res).catch(err=>{})
-    break;
-    case 2: return this.buildData("resorts","interior_designs").then((res)=>res);
-    break;
-    case 3: return this.buildData("resto_pubs","fitness_sports").then((res)=>res);
-    break;
+    case 1: return this.buildData("furniture","pets")
+                  .then((res)=>res)
+                  .catch((err)=>err)
+    case 2: return this.buildData("resorts","interior_designs")
+                   .then((res)=>res)
+                   .catch((err)=>err)
+    case 3: return this.buildData("resto_pubs","fitness_sports")
+                  .then((res)=>res)
+                  .catch((err)=>err)
     // case 4: return this.buildData("").then((res)=>res);
     // break;
     default: return true;
@@ -70,7 +73,6 @@ buildData(queryParam1,queryParam2){
 
 
 handleOnScroll(){
-  var scrollCounter=0;
   var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
   var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
   var clientHeight = document.documentElement.clientHeight || window.innerHeight;
@@ -106,11 +108,9 @@ handleOnScroll(){
   };
 
   changeText(categoryName){
-    console.log(categoryName);
-    if(categoryName != undefined){
+    if(categoryName !== undefined){
       let categoryTitle=categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
       categoryTitle=categoryTitle.split('_').join(' ');
-      console.log(categoryTitle);
       return categoryTitle;
     }
   }
@@ -126,7 +126,6 @@ handleOnScroll(){
 
   render()
   {
-    const {newData} = this.state
     const groupedByCategory = this.groupBy(this.state.newData,'name')
     const renderContext = this
     return (

@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { subscribe } from '../actions/contactActions';
 import {connect} from 'react-redux';
 
-class Footer extends React.Component
-{
+class Footer extends React.Component{
   constructor(props){
     super(props);
     this.handleSubscribe= this.handleSubscribe.bind(this);
@@ -59,8 +57,8 @@ class Footer extends React.Component
                     <div className="footer-pad">
                       <ul className="list-unstyled">
                         <li>
-                          <Link to="/brands">
-                            <span className="footerMenuLinks"> brands</span>
+                          <Link to="/">
+                            <span className="footerMenuLinks"> home</span>
                           </Link>
                         </li>
                         <li>
@@ -69,14 +67,14 @@ class Footer extends React.Component
                         </Link>
                         </li>
                         <li className="nav-item ">
-                          <Link to="/getinvite">
-                            <span className="footerMenuLinks"> getinvite</span>
-                          </Link>
-                        </li>
-                        <li className="nav-item ">
                           <Link to="/help">
                             <span className="footerMenuLinks"> help</span>
                           </Link>
+                        </li>
+                        <li className="nav-item ">
+                            <Link to="/getinvite">
+                              <span className="footerMenuLinks"> getinvite</span>
+                            </Link>
                         </li>
                       </ul>
                     </div>

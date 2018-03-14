@@ -63,6 +63,10 @@ display: block !important;
 .hideTour{
 display: none !important;
 }
+.mainLayout .layoutStyle{
+  min-height: calc(100vh - 305px);
+      /* min-height: calc(100vh-305px); */
+}
 .displayTour .modal-title{
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
@@ -189,6 +193,10 @@ display: block;
   text-transform: uppercase;
   font-weight: bold;
 }
+.itemCard{
+  position: relative;
+  min-height:350px;
+}
 .productBlock{
   position: relative;
   min-height:350px;
@@ -216,7 +224,7 @@ transition: all 200ms ease-in; */
 /* -webkit-transform: scale(1.1); /* Safari 3-8 */ */
 /* transform: scale(1.1); */
 }
-.productBlock .productHits{
+.productHits{
   position: absolute;
   bottom:0;
   left:0;
@@ -225,7 +233,8 @@ transition: all 200ms ease-in; */
 }
 /*Navbar*/
 .mainNavbar{
-background-color: #643ab4;
+/* background-color: #643ab4; */
+background-color: #1c1c1c;
 height:89px;
 font-family: 'Raleway', sans-serif;
 }

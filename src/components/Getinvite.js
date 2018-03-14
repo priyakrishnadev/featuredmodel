@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import classnames from 'classnames';
 import {connect} from 'react-redux';
 import {sendInvite} from '../actions/contactActions';
 
@@ -48,7 +46,7 @@ class Getinvite extends React.Component{
       if(this.state.email === '' || !(this.state.email.match(/^([A-Za-z0-9]+)@([A-Za-z]+\.)+([A-Za-z]{2,})$/)) ){
             errors.email = "Please enter valid Email Address";
       }
-      if(this.state.phonenumber === '' || !(this.state.phonenumber.match(/^([7-9])+([0-9]{9})$/)) || !(this.state.phonenumber.length==10) ){
+      if(this.state.phonenumber === '' || !(this.state.phonenumber.match(/^([7-9])+([0-9]{9})$/)) || !(this.state.phonenumber.length===10) ){
             errors.phonenumber = "Please enter valid Phone Number";
       }
       if(this.state.category === '' || this.state.category === "null" ){

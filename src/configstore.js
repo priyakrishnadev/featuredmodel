@@ -2,11 +2,12 @@ import {createStore, applyMiddleware,compose} from 'redux';
 import thunk from 'redux-thunk';
 import {createLogger} from 'redux-logger';
 import rootReducer from './reducers';
-import { loadState,saveState } from './localStorage';
-import { loadproductState,saveproductState } from './productlocalStorage';
-import throttle from 'lodash/throttle';
-import setAuthorizationToken from './utils/setAuthorizationToken';
-import {setCurrentUser} from './actions/AuthActions';
+import { loadState } from './localStorage';
+// import { loadState,saveState } from './localStorage';
+// import { loadproductState,saveproductState } from './productlocalStorage';
+// import throttle from 'lodash/throttle';
+// import setAuthorizationToken from './utils/setAuthorizationToken';
+// import {setCurrentUser} from './actions/AuthActions';
 
 const configstore = () =>{
    const persistedState = loadState();

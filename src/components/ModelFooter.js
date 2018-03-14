@@ -57,11 +57,12 @@ export class ModelFooter extends React.Component{
   }
 
 base_url() {
-      var pathparts = window.location.pathname.split('/');
+      // var pathparts = window.location.pathname.split('/');
+      let url = "";
       if (typeof window !== 'undefined') {
-          var url = window.location.href;
+        url  = window.location.href;
       } else {
-        var url = window.location.origin
+         url = window.location.origin
       }
       return url;
   }

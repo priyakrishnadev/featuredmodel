@@ -24,20 +24,19 @@ import SearchBy from './SearchBy';
    }
 
    componentDidMount(){
-      // if(this.props.product === undefined || this.props.product.length === 0){
+       // if(this.props.product === undefined || this.props.product.length === 0){
        this.props.getCategoryInfo(this.props.page,this.props.pageId);
       // }
    }
 
    componentWillReceiveProps(nextProps){
        if(nextProps.page !== this.props.page || nextProps.pageId !== this.props.pageId){
-         console.log(nextProps.pageId);
           this.props.getCategoryInfo(nextProps.page,nextProps.pageId);
        }
    }
 
   changeText(){
-    if(this.props.categoryTitle != undefined){
+    if(this.props.categoryTitle !== undefined){
       let categoryTitle=this.props.categoryTitle.charAt(0).toUpperCase() + this.props.categoryTitle.slice(1);
       categoryTitle=categoryTitle.split('_').join(' ');
       return categoryTitle;
@@ -77,13 +76,13 @@ render(){
             {this.props.product && this.props.product.map((product,i)=>
                 <div className="col-sm-3 col-md-3 col-lg-3" key={product.id}>
                   <Link to={`/SmartView/${this.props.page}/${product.modelname}`} className="routeDecorator">
-                    <div className="border mb-2 p-3 rounded ">
+                    <div className="border mb-2 p-3 rounded itemCard">
                       <img src={`http://127.0.0.1:8000${product.thumbnailimage}`} alt="" width="100%" height="200px" />
                         <h5 className="productTitle my-2">{product.modelname}</h5>
                         <p className="productDescription text-secondary">
                           {product.modelsubtitle}
                         </p>
-                        <span className="text-grey">
+                        <span className="text-grey productHits">
                         <span className="mr-2">
                         <i className="fa fa-thumbs-o-up" aria-hidden="true"> {product.modellikes}</i>
                         </span>
@@ -102,7 +101,7 @@ render(){
 }
 
 function mapStateToProps(state){
-  const {isLoading,isLoaded,error,categoryTitle,product,searchText,sortValue} = state.products
+  const {isLoading,error,categoryTitle,product} = state.products
     return {
         isLoading,
         error,

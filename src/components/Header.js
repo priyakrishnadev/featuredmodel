@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink ,Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 class Header extends React.Component{
@@ -26,7 +25,7 @@ class Header extends React.Component{
         <div className="container-fluid noPadding ">
             <nav className="navbar navbar-expand-lg mainNavbar ">
               <Link className="navbar-brand" to="/">
-              <img src="/img/logo.png" alt="ShowKase3D" width="220px" height="50px" />
+              <img src="/img/showkase.png" alt="ShowKase3D" width="150px" height="80px" />
               </Link>
               <button className="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

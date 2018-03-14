@@ -2,7 +2,6 @@ import React from "react";
 import classnames from 'classnames';
 import {connect} from 'react-redux';
 import {getComments,upVotePoll,downVotePoll} from '../actions/commentActions';
-import axios from 'axios';
 import TimeAgo from 'timeago-react';
 
 class CommentList extends React.Component{
@@ -51,10 +50,10 @@ componentWillReceiveProps(nextProps){
             {this.props.comments && this.props.comments.slice(0).reverse().map( (comment, key) =>
               <li key={comment.id}>
                 <div className="row mx-0 border py-2 px-2">
-                  <div className="userComments col-sm-3 col-md-3 col-lg-3 noPadding">
+                  <div className="userComments col-3 noPadding">
                     <img src={`http://127.0.0.1:8000/${comment.avatar}`} className="img-circle rounded-circle border" alt="" width="100%" height="64px" />
                   </div>
-                  <div className="userInfo col-sm-9 col-md-9 col-lg-9 noPadding">
+                  <div className="userInfo col-9 noPadding">
                     <h6>{comment.name}</h6>
                     <p className="userComment">{comment.message}</p>
                   </div>

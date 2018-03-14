@@ -43,7 +43,7 @@ render(){
                 <p className="text-danger text-center mb-0">{this.props.error}</p>
               <p className="text-success text-center mb-0">{this.props.data.success}</p>
               <h4 className="text-center ">Contact us</h4>
-                <form className="form" role="form" onSubmit={handleSubmit(this.submit)}>
+                <form className="form" onSubmit={handleSubmit(this.submit)}>
                   <div className="form-group">
                     <Field
                       name="name"

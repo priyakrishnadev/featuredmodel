@@ -14,8 +14,8 @@ const validate = values => {
   if (!values.message) {
     errors.message = 'Required !!'
   }else {
-    var bad_words_array = [];
-    bad_words_array=new Array('wtf', 'lol', 'terrorist', 'hell', 'terrorism', 'f**k', 'jihad', 'fuck', 'adsf', 'asdf', 'qwert');
+    var bad_words_array = ['wtf', 'lol', 'terrorist', 'hell', 'terrorism', 'f**k', 'jihad', 'fuck', 'adsf', 'asdf', 'qwert'];
+    // bad_words_array=new Array('wtf', 'lol', 'terrorist', 'hell', 'terrorism', 'f**k', 'jihad', 'fuck', 'adsf', 'asdf', 'qwert');
     var compare_text=values.message;
     for(var i=0; i<bad_words_array.length; i++)
     {

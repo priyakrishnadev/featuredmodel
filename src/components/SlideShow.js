@@ -37,7 +37,7 @@ class SlideShow extends Component {
   };
 
   leftSlide=()=>{
-    const { total, current } = this.state;
+    const { current } = this.state;
     this.setState({
       current: current - 1 <= 0 ? 0 : current - 1
     });

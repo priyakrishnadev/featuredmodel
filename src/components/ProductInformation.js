@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ModelForm from './ModelForm';
 import EditProductContainer from '../containers/EditProductContainer';
-import {getProductInfo} from '../actions/productActions';
 
 class ProductInformation extends React.Component{
   constructor(props){

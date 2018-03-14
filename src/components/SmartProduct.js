@@ -64,13 +64,13 @@ render(){
             page={this.props.page}
             pageId={this.props.pageId}
             />
-            <RewardModal
-            page={this.props.page}
-            pageId={this.props.pageId}
-            />
+
              <h3>{this.props.page}</h3>
           <h3>{this.props.pageId}</h3>*/}
-
+          <RewardModal
+          page={this.props.page}
+          pageId={this.props.pageId}
+          />
           <div className="col-sm-3 col-md-3 col-lg-3 mb-2">
             <CommentBox
             page={this.props.page}
@@ -147,8 +147,6 @@ render(){
 }
 
 function mapStateToProps(state){
-  const {isLoading}=state.productloader
-  // console.log(state.productloader,"isloading");
   return {
     productInfo:state.products.productsInfo,
     comments:state.comments.comments,

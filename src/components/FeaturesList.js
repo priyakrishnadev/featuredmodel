@@ -1,6 +1,4 @@
-// import React,{PropTypes} from 'react';
 import React from 'react';
- import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 import {getProductInfo} from '../actions/productActions';
 import { Carousel } from 'react-responsive-carousel';
@@ -49,7 +47,9 @@ render(){
                   </div>
                   <div role="tabpanel" className="tab-pane fade" id="location" aria-labelledby="location-tab">
                     <div>
-                      <iframe src={product.featuretabtitletwodescription} key={product.id}
+                      <iframe
+                      title="locationIframe"
+                      src={product.featuretabtitletwodescription} key={product.id}
                       width="100%" height="366px" frameBorder="0">
                       </iframe>
                       {/*<iframe
@@ -78,6 +78,7 @@ render(){
                         <div key={image}>
                             <img  src={`http://127.0.0.1:8000${image}`}
                             width="100%" height="350px"
+                            alt="featureimages"
                              />
                         </div>
                       )}
@@ -91,9 +92,15 @@ render(){
                     }
                     <button onClick={this.playVideo.bind(this)}>PLAY</button>
                     </div>*/}
-                    {product.featurevideos.map((video)=>
-                    <div className="col-sm-6 col-md-6 col-lg-6" key={video}>
-                    <iframe width="100%" height="186" frameBorder="0"  src={video.video} frameBorder="0" allowFullScreen></iframe>
+                    {product.featurevideos.map((video,index)=>
+                    <div className="col-sm-6 col-md-6 col-lg-6" key={index}>
+                    <iframe
+                    title="videoIframe"
+                    width="100%"
+                    height="186"
+                    frameBorder="0"
+                    src={video.video}
+                    allowFullScreen></iframe>
                     </div>
                   )}
                   </div>

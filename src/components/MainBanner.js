@@ -1,6 +1,5 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import SlideShow from './SlideShow';
 import {getBannerImages} from '../actions/landingPageActions';
 import {getMainBannerImages} from '../selectors';

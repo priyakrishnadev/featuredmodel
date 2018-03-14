@@ -5,7 +5,6 @@ import validate from './validate'
 import {connect} from 'react-redux';
 import {handleProductValues,categoryLoad} from '../actions/productActions';
 import Dropzone from 'react-dropzone';
-import axios from 'axios';
 
 class ModelForm extends React.Component{
 
@@ -25,20 +24,19 @@ renderDropzoneInput(field){
       <div>
         <Dropzone
           name={field.name}
-          multiple={field.input.name=="featureimages1" ? true : false}
+          multiple={field.input.name==="featureimages1" ? true : false}
           className="productInfoDropZone"
           onDrop={(acceptedFiles) => {
               acceptedFiles.forEach(file => {
                   const reader = new FileReader();
-                   console.log(reader);
                   reader.onload = () => {
-                      const fileAsBinaryString = reader.result;
+                      // const fileAsBinaryString = reader.result;
                       // console.log(fileAsBinaryString);
                       field.input.onChange(acceptedFiles)
                       // do whatever you want with the file content
                   };
-                  reader.onabort = () => console.log('file reading was aborted');
-                  reader.onerror = () => console.log('file reading has failed');
+                  // reader.onabort = () => console.log('file reading was aborted');
+                  // reader.onerror = () => console.log('file reading has failed');
                   reader.readAsBinaryString(file);
               });
           }}
@@ -56,7 +54,9 @@ renderDropzoneInput(field){
             className= "col-sm-2 col-md-2 col-lg-2 ">
             <div className="mt-2">
             <p className="mb-2 font-weight-bold">Image Preview</p>
-            <img src={file.preview} width="100%" height="200px" />
+            <img src={file.preview} width="100%" height="200px"
+            alt="imagepreview"
+            />
             {file.name}
             {/*file.picture_id.preview ? <img src={file.picture_id.preview} width="100%" height="200px" /> :*/}
             </div>
@@ -194,12 +194,7 @@ handleCheckBoxValue(evt) {
   }
 
   render(){
-    const { handleSubmit,
-      productLoad,
-      getProductInfo,
-      pristine,
-      reset,
-      submitting} = this.props
+    const { handleSubmit,pristine,reset,submitting} = this.props
     return(
       <div>
 

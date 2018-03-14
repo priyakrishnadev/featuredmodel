@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field,reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 
 class SelectProduct extends React.Component {
   products=()=>{

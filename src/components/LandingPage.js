@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import FeaturedOffer from './FeaturedOffer';
 import Trending from './Trending';
 import MostPopular from './MostPopular';
 import Suggested from './Suggested';

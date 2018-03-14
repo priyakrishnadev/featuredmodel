@@ -1,19 +1,18 @@
 import axios from 'axios';
 import ip from 'ip';
  import FormData from 'form-data';
- import history from '../components/history'
+ // import history from '../components/history'
 export const handleProductValues=(values)=>{
   var formData = new FormData();
-  var featuresImagesarray=[];
-  var productBlogImage;
   var featureImageLength=values.values.featureimages1.length;
-     for (var i = 0; i < featureImageLength; i++) {
+    let i=0;
+     for ( i = 0; i < featureImageLength; i++) {
        formData.append('featureimages[]', values.values.featureimages1[i]);
      }
-     console.log(values.values.featurevideos);
+    let j=0;
      var videoCount=values.values.featurevideos.length;
-     for (var i = 0; i < videoCount ; i++) {
-       formData.append('featurevideos[]', values.values.featurevideos[i].video);
+     for ( j = 0; j < videoCount ; j++) {
+       formData.append('featurevideos[]', values.values.featurevideos[j].video);
      }
      formData.append('modelfile', values.values.modelfile[0]);
      formData.append('modelname', values.values.modelname);
@@ -295,11 +294,9 @@ export const rewardsSubmit=(values)=>{
       };
       reader.readAsDataURL(file);
       reader.onerror = function (error) {
-        console.log('Error: ', error);
       };
     }
     values.rewardImage=rewardsImages;
-    console.log(values);
   }
   return dispatch=>{
       setTimeout(function(){
@@ -332,7 +329,7 @@ export const rewardsPostFailed=(error)=>{
 export const getBestOffers=()=>{
   return dispatch=>{
     dispatch({type:'FETCHING'})
-    setTimeout(function(){
+    // setTimeout(function(){
       return axios.get('http://127.0.0.1:8000/product/bestoffers')
       .then(res=>dispatch({type:'LOAD_BESTOFFERS',data:res.data}),
       dispatch({type:'FETCHED'}))
@@ -342,7 +339,7 @@ export const getBestOffers=()=>{
               }
         });
 
-    },5000);
+    // },5000);
 
   }
 }

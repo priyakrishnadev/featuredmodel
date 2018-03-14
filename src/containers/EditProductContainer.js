@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field,reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import validate from '../components/validate'
 import {connect} from 'react-redux';
 import SelectCategory from '../components/SelectCategory';
@@ -24,7 +24,7 @@ myCallback = (selectedCategory) => {
 }
 
 render(){
-  const { handleSubmit, productLoad, getProductInfo, pristine, reset, submitting} = this.props
+  const { handleSubmit,submitting} = this.props
   return(
           <form>
             <div className="row mx-0 my-3 pt-3 rounded text-white bgSmartView">

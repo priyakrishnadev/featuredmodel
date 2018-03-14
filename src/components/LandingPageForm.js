@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { landingPageValues } from '../actions/landingPageActions';
 import Dropzone from 'react-dropzone';
 
@@ -10,14 +10,14 @@ const renderDropzoneInput=(field)=>{
       <div>
         <Dropzone
           name={field.name}
-          multiple={field.input.name=="mainbannerimages" ? true : false}
+          multiple={field.input.name==="mainbannerimages" ? true : false}
           className="productInfoDropZone"
           onDrop={(acceptedFiles) => {
               acceptedFiles.forEach(file => {
                   const reader = new FileReader();
                    console.log(reader);
                   reader.onload = () => {
-                      const fileAsBinaryString = reader.result;
+                      // const fileAsBinaryString = reader.result;
                       // console.log(fileAsBinaryString);
                       field.input.onChange(acceptedFiles)
                   };
@@ -39,7 +39,7 @@ const renderDropzoneInput=(field)=>{
               className= "col-sm-2 col-md-2 col-lg-2 ">
               <div className="mt-2 breakWord">
               <p className="mb-2 font-weight-bold">Banner Preview</p>
-              <img src={file.preview} width="100%" height="200px" />
+              <img src={file.preview} width="100%" height="200px" alt="imagepreview" />
               {file.name}
               {/*file.picture_id.preview ? <img src={file.picture_id.preview} width="100%" height="200px" /> :*/}
               </div>
@@ -53,7 +53,7 @@ const renderDropzoneInput=(field)=>{
 class LandingPageForm extends React.Component{
 
   onSubmit=(values, dispatch)=>{
-    if(values.mainbannerimages.length!=0){
+    if(values.mainbannerimages.length!==0){
       return this.props.landingPageValues(values);
     }
   }

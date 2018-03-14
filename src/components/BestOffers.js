@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getBestOffers,searchforOffer,sortByOffer} from '../actions/productActions';
 import {getVisibleOffers} from '../selectors';
-import {Link} from 'react-router-dom';
 import FeaturedOffer from './FeaturedOffer';
 import SortBy from './SortBy';
 import SearchBy from './SearchBy';
@@ -17,9 +16,9 @@ import ResourceNotFound from './ResourceNotFound';
      this.searchData=this.searchData.bind(this);
    }
    componentDidMount(){
-      // if(this.props.product === undefined || this.props.product.length === 0){
+       if(this.props.bestOffersData === undefined || this.props.bestOffersData.length === 0){
        this.props.getBestOffers()
-      // }
+       }
    }
    searchData(data){
      this.setState({
@@ -31,7 +30,7 @@ import ResourceNotFound from './ResourceNotFound';
        this.props.sortByOffer(data);
    }
    render(){
-     const {offerNotFound,isLoading,isLoaded}=this.props
+     const {offerNotFound,isLoading}=this.props
      if(offerNotFound) return <ResourceNotFound error={offerNotFound}/>;
      if(isLoading) return <div className="spinner"></div>;
      return (
@@ -74,11 +73,10 @@ import ResourceNotFound from './ResourceNotFound';
 }
 
 function mapStateToProps(state){
-  const {bestoffers,searchText,sortValue,offerNotFound,isLoading,isLoaded} = state.products
+  const {bestoffers,offerNotFound,isLoading} = state.products
     return {
       offerNotFound,
       isLoading,
-      isLoaded,
       bestOffersData:getVisibleOffers(state) || bestoffers
     }
 }

@@ -80,7 +80,7 @@ class RewardModal extends React.Component{
                         height="200px"
                         />
                       </div>
-                      :(rewardsNotFound == true &&
+                      :(rewardsNotFound === true &&
                         <div className="modal-body  mx-auto c-pointer"><p className="text-primary lead">Sorry, Better luck next time!!</p></div>
                       )
                     )
